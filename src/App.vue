@@ -6,7 +6,10 @@
 </template>
 
 <script>
+// 映射函数
+import { mapActions } from 'vuex'
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+
 export default {
   name: '',
   components: {
@@ -20,8 +23,18 @@ export default {
   created () {},
   computed: {},
   watch: {},
-  mounted () {},
-  methods: {}
+  // async mounted () {
+  //   const result = await reqFoodCategorys()
+  //   console.log(result)
+  // },
+  mounted () {
+    // this.$store.dispatch('getAddress')
+    this.getAddress()
+    this.getUserInfo()
+  },
+  methods: {
+    ...mapActions(['getAddress', 'getUserInfo'])
+  }
 }
 </script>
 
